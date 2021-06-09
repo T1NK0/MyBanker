@@ -76,7 +76,7 @@ namespace MyBanker
         public override string CardInfo()
         {
             return base.CardInfo() + "\n" +
-            "Udløbsdato: " + ExpirationDate + "\n" +
+            "Udløbsdato: " + ExpirationDate.ToShortDateString() + "\n" +
             "Dagligt hævebeløb: " + WithdrawLimitDaily + "\n" +
             "Ugentlig hævebeløb: " + WithdrawLimitMonthly + "\n" +
             "Kredit: " + Credit + "\n" +
