@@ -4,14 +4,15 @@ using System.Text;
 
 namespace MyBanker
 {
-    class Debit
+    class Debit : Card
     {
-        //public Debit() : base()
-        //{
+        public Debit(string cardHolder) : base(cardHolder)
+        {
+            CardNumberGenerator cardNumberGenerator = new CardNumberGenerator();
 
-        //}
-
-        //abstract void CheckBalanceForTransaction();
-
+            CardType = "Hævekort";
+            CardPrefix = "2400";
+            CardNumber = cardNumberGenerator.CreateCarddNumber(CardPrefix, 16);
+        }
     }
 }

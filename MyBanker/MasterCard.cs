@@ -4,8 +4,8 @@ using System.Text;
 
 namespace MyBanker
 {
-    //Inherits from Card, and makes a contract with all our interfaces we have made.
-    class MasterCard: Card, IExpirationDate, ICredit, ISpendLimit, IWithdrawLimitDaily, IWithdrawLimitMonthly
+    //Inherits from Card, and makes a contract with all our interfaces we have made which is needed for the mastercard.
+    class MasterCard : Card, IExpirationDate, ICredit, ISpendLimit, IWithdrawLimitDaily, IWithdrawLimitMonthly
     {
         private DateTime _expirationDate;
         private int _credit;
@@ -45,7 +45,8 @@ namespace MyBanker
 
         public MasterCard(string cardHolder) : base(cardHolder)
         {
-            string[] prefixes = {"51", "52", "53", "54", "55" };
+            //Creates a string array with our prefixes available.
+            string[] prefixes = {"51", "52", "53", "54", "55"};
             Random random = new Random();
             CardNumberGenerator cardNumberGenerator = new CardNumberGenerator();
 
@@ -53,9 +54,9 @@ namespace MyBanker
             CardType = "MasterCard";
             //Creates a random prefix from our array of the available prefixes for the card
             CardPrefix = prefixes[random.Next(0, prefixes.Length)];
-            //Creates a random cardnumber based off of our 
+            //Creates a random cardnumber based off of our prefix numbers and rest is random generated numbers added to the string.
             CardNumber = cardNumberGenerator.CreateCarddNumber(CardPrefix, 16);
-            //Sets the expirationdate to 5 years. (In our local time)
+            //Sets the expirationdate to 5 years, from card creation time.
             ExpirationDate = DateTime.Now.AddYears(5);
             //Sets the available credit.
             Credit = 40000;
@@ -65,13 +66,15 @@ namespace MyBanker
             WithdrawLimitMonthly = 30000;
         }
 
+        //Create an override of the CardInfo so we show our extra interface values we use in this card.
         public override string CardInfo()
         {
             return base.CardInfo() + "\n" +
             "Udløbsdato: " + ExpirationDate + "\n" +
             "Dagligt hævebeløb: " + WithdrawLimitDaily + "\n" +
             "Ugentlig hævebeløb: " + WithdrawLimitMonthly + "\n" +
-            "Kredit: " + Credit + "\n"
+            "Kredit: " + Credit + "\n" +
+            "-------------------------"
             ; 
         }
     }

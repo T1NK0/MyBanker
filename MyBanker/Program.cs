@@ -7,36 +7,26 @@ namespace MyBanker
     {
         static void Main(string[] args)
         {
+            //Create our list containing our cards
             List<Card> cardList = new List<Card>();
+
             ////Create our objects / cards
-
             MasterCard masterCard = new MasterCard("Svend Eriksen");
-
+            Visa visa = new Visa("Lars Larsen");
+            VisaElectron visaElectron = new VisaElectron("Bob Svendsen");
+            Maestro maestro = new Maestro("Anders Andersen");
+            Debit debit = new Debit("Carl Johan");
 
             cardList.Add(masterCard);
+            cardList.Add(visa);
+            cardList.Add(visaElectron);
+            cardList.Add(maestro);
+            cardList.Add(debit);
 
             foreach (Card card in cardList)
             {
                 Console.WriteLine(card.CardInfo());
             }
-
-            //Square square = new Square(90, "Kvadrat");
-            //Rektangel rektangel = new Rektangel(20, 40, "Rektangel");
-            //Paralellogram paralellogram = new Paralellogram(20, 30, 5, "Paralellogram");
-            //Trapez trapez = new Trapez(50, 15, 30, 15, "Trapez");
-            //Triangle triangle = new Triangle(25, 25, "Retvinklet Trekant");
-
-            //shapes.Add(square);
-            //shapes.Add(rektangel);
-            //shapes.Add(paralellogram);
-            //shapes.Add(trapez);
-            //shapes.Add(triangle);
-
-            ////Loop through the shapes in the list.
-            //foreach (Shape shape in shapes)
-            //{
-            //    Console.WriteLine(shape.Name + "\n" + shape.calculateAreal() + "\n" + shape.calculatePerimeter() + "\n" + "\n");
-            //}
         }
     }
 }

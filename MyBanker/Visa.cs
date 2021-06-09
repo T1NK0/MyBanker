@@ -5,10 +5,12 @@ using System.Text;
 namespace MyBanker
 {
     //Inherits from card, and creates contract with the interface ExpirationDate
-    class Visa :Card, IExpirationDate
+    class Visa : Card, IExpirationDate, IWithdrawLimitMonthly, ISpendLimit
     {
         //gets/sets the variable from the interface
         private DateTime _expirationDate;
+        private int _withdrawLimitMonthly;
+        private int _spendLimit;
 
         public DateTime ExpirationDate
         {
@@ -16,14 +18,47 @@ namespace MyBanker
             set { _expirationDate = value; }
         }
 
+        public int WithdrawLimitMonthly
+        {
+            get { return _withdrawLimitMonthly; }
+            set { _withdrawLimitMonthly = value; }
+        }
+
+        public int SpendLimit
+        {
+            get { return _spendLimit; }
+            set { _spendLimit = value; }
+        }
+
         public Visa(string cardHolder) : base(cardHolder) 
         {
+            CardNumberGenerator cardNumberGenerator = new CardNumberGenerator();
+
             //Set our cardholder, card type, cardnumber(cardprefix), expirationdate, and accountnumber
+
+            //Sets our cardtype to "Visa"
             CardType = "Visa";
+            //Creates the cards prefix (4 is the only option here)
             CardPrefix = "4";
-            CardNumber = "4";
+            //Creates a random cardnumber based off of our prefix numbers and rest is random generated numbers added to the string.
+            CardNumber = cardNumberGenerator.CreateCarddNumber(CardPrefix, 16);
+            //Sets the expirationdate to 5 years, from card creation time.
             ExpirationDate = DateTime.Now.AddYears(5);
-            //AccountNumber = 
+            //Sets our monthly withdraw limti to 25000
+            WithdrawLimitMonthly = 25000;
+            //Sets our spending limit to 20000
+            SpendLimit = 20000;
+        }
+
+        //Create an override of the CardInfo so we show our extra interface values we use in this card.
+        public override string CardInfo()
+        {
+            return base.CardInfo() + "\n" +
+            "Udløbsdato: " + ExpirationDate + "\n" +
+            "Ugentlig hævebeløb: " + WithdrawLimitMonthly + "\n" +
+            "Brugs begrænsning:: " + SpendLimit + "\n" +
+            "-------------------------"
+            ;
         }
     }
 }
