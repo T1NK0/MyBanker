@@ -47,7 +47,10 @@ namespace MyBanker
             SpendLimit = 10000;
         }
 
-        //Create an override of the CardInfo so we show our extra interface values we use in this card.
+        /// <summary>
+        /// Create an override of the CardInfo so we show our extra interface values we use in this card.
+        /// </summary>
+        /// <returns>An extra couple of lines to our string since we return the base string, and our new added items.</returns>
         public override string CardInfo()
         {
             return base.CardInfo() + "\n" +

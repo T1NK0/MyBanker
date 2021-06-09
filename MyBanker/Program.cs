@@ -10,19 +10,21 @@ namespace MyBanker
             //Create our list containing our cards
             List<Card> cardList = new List<Card>();
 
-            ////Create our objects / cards
+            //Create our objects / cards
             MasterCard masterCard = new MasterCard("Svend Eriksen");
             Visa visa = new Visa("Lars Larsen");
             VisaElectron visaElectron = new VisaElectron("Bob Svendsen");
             Maestro maestro = new Maestro("Anders Andersen");
             Debit debit = new Debit("Carl Johan");
 
+            //Adds our cards to our card list
             cardList.Add(masterCard);
             cardList.Add(visa);
             cardList.Add(visaElectron);
             cardList.Add(maestro);
             cardList.Add(debit);
 
+            //Writes out all the cards in the list.
             foreach (Card card in cardList)
             {
                 Console.WriteLine(card.CardInfo());

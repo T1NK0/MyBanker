@@ -20,6 +20,7 @@ namespace MyBanker
                 //adds a new number to our string "cardNumbers
                 cardNumbers += random.Next(0, 9).ToString();
             }
+            //Return our new string of cardnumbers
             return cardNumbers;
         }
     }

@@ -6,12 +6,18 @@ namespace MyBanker
 {
     public abstract class Card
     {
+        /// <summary>
+        /// Our attributes for all the cards in general
+        /// </summary>
         private string _cardType;
         private string _cardHolder;
         private string _cardPrefix;
         private string _cardNumber;
         private string _accountNumber;
 
+        /// <summary>
+        /// Our properties for all the cards in general
+        /// </summary>
         public string CardType
         {
             get { return _cardType; }
@@ -47,7 +53,10 @@ namespace MyBanker
             CardHolder = cardHolder;
         }
 
-        //Create a virtual string method, we use as our standard method to print our card info, which we can override and add info to with the override function.
+        /// <summary>
+        /// Create a virtual string method, we use as our standard method to print our card info, which we can override and add info to with the override function.
+        /// </summary>
+        /// <returns>A string which will include line breaks and card properties.</returns>
         public virtual string CardInfo()
         {
             //Print as a list looking like a credit card.
