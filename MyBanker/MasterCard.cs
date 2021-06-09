@@ -7,12 +7,14 @@ namespace MyBanker
     //Inherits from Card, and makes a contract with all our interfaces we have made which is needed for the mastercard.
     class MasterCard : Card, IExpirationDate, ICredit, ISpendLimit, IWithdrawLimitDaily, IWithdrawLimitMonthly
     {
+        //Our attributes from our interfaces
         private DateTime _expirationDate;
         private int _credit;
         private int _spendLimit;
         private int _withdrawLimitDaily;
         private int _withdrawLimitMonthly;
 
+        //Our properties from our interfaces
         public DateTime ExpirationDate
         {
             get { return _expirationDate; }
@@ -49,7 +51,11 @@ namespace MyBanker
             string[] prefixes = {"51", "52", "53", "54", "55"};
             Random random = new Random();
             CardNumberGenerator cardNumberGenerator = new CardNumberGenerator();
-
+            //Creates a prefix for our account number to get created from, since all accounts start with 3520 followed by 10 random numbers.
+            string AccountNumberPrefix = "3520";
+            
+            //Sets our account number.
+            AccountNumber = cardNumberGenerator.CreateCarddNumber(AccountNumberPrefix, 14);
             //Sets our cardtype to "MasterCard"
             CardType = "MasterCard";
             //Creates a random prefix from our array of the available prefixes for the card

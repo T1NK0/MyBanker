@@ -20,7 +20,11 @@ namespace MyBanker
             string[] prefixes = { "5018", "5020", "5038", "5893", "6304", "6759", "6761", "6762", "6763"};
             Random random = new Random();
             CardNumberGenerator cardNumberGenerator = new CardNumberGenerator();
+            //Creates a prefix for our account number to get created from, since all accounts start with 3520 followed by 10 random numbers.
+            string AccountNumberPrefix = "3520";
 
+            //Sets our account number.
+            AccountNumber = cardNumberGenerator.CreateCarddNumber(AccountNumberPrefix, 14);
             //Sets our cardtype to "Maestro"
             CardType = "Maestro";
             //Creates a random prefix from our array of the available prefixes for the card

@@ -33,9 +33,11 @@ namespace MyBanker
         public Visa(string cardHolder) : base(cardHolder) 
         {
             CardNumberGenerator cardNumberGenerator = new CardNumberGenerator();
+            //Creates a prefix for our account number to get created from, since all accounts start with 3520 followed by 10 random numbers.
+            string AccountNumberPrefix = "3520";
 
-            //Set our cardholder, card type, cardnumber(cardprefix), expirationdate, and accountnumber
-
+            //Sets our account number.
+            AccountNumber = cardNumberGenerator.CreateCarddNumber(AccountNumberPrefix, 14);
             //Sets our cardtype to "Visa"
             CardType = "Visa";
             //Creates the cards prefix (4 is the only option here)

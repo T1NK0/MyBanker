@@ -30,7 +30,11 @@ namespace MyBanker
             string[] prefixes = {"4026", "417500", "4508", "4844", "4913", "4917"};
             Random random = new Random();
             CardNumberGenerator cardNumberGenerator = new CardNumberGenerator();
+            //Creates a prefix for our account number to get created from, since all accounts start with 3520 followed by 10 random numbers.
+            string AccountNumberPrefix = "3520";
 
+            //Sets our account number.
+            AccountNumber = cardNumberGenerator.CreateCarddNumber(AccountNumberPrefix, 14);
             //Sets our cardtype to "MasterCard"
             CardType = "VisaElectron";
             //Creates a random prefix from our array of the available prefixes for the card

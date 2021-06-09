@@ -10,7 +10,7 @@ namespace MyBanker
         private string _cardHolder;
         private string _cardPrefix;
         private string _cardNumber;
-        private int _accountNumber;
+        private string _accountNumber;
 
         public string CardType
         {
@@ -36,7 +36,7 @@ namespace MyBanker
             set { _cardNumber = value; }
         }
 
-        public int AccountNumber
+        public string AccountNumber
         {
             get { return _accountNumber; }
             set { _accountNumber = value; }
