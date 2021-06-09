@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MyBanker
 {
@@ -6,7 +7,19 @@ namespace MyBanker
     {
         static void Main(string[] args)
         {
+            List<Card> cardList = new List<Card>();
             ////Create our objects / cards
+
+            MasterCard masterCard = new MasterCard("Svend Eriksen");
+
+
+            cardList.Add(masterCard);
+
+            foreach (Card card in cardList)
+            {
+                Console.WriteLine(card.CardInfo());
+            }
+
             //Square square = new Square(90, "Kvadrat");
             //Rektangel rektangel = new Rektangel(20, 40, "Rektangel");
             //Paralellogram paralellogram = new Paralellogram(20, 30, 5, "Paralellogram");

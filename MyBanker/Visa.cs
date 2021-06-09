@@ -16,7 +16,7 @@ namespace MyBanker
             set { _expirationDate = value; }
         }
 
-        public Visa()
+        public Visa(string cardHolder) : base(cardHolder) 
         {
             //Set our cardholder, card type, cardnumber(cardprefix), expirationdate, and accountnumber
             CardType = "Visa";

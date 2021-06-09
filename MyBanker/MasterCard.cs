@@ -43,7 +43,7 @@ namespace MyBanker
             set { _withdrawLimitMonthly = value; }
         }
 
-        public MasterCard()
+        public MasterCard(string cardHolder) : base(cardHolder)
         {
             string[] prefixes = {"51", "52", "53", "54", "55" };
             Random random = new Random();
@@ -63,6 +63,16 @@ namespace MyBanker
             WithdrawLimitDaily = 5000;
             //Sets our monthly max redraw amount.
             WithdrawLimitMonthly = 30000;
+        }
+
+        public override string CardInfo()
+        {
+            return base.CardInfo() + "\n" +
+            "Udløbsdato: " + ExpirationDate + "\n" +
+            "Dagligt hævebeløb: " + WithdrawLimitDaily + "\n" +
+            "Ugentlig hævebeløb: " + WithdrawLimitMonthly + "\n" +
+            "Kredit: " + Credit + "\n"
+            ; 
         }
     }
 }

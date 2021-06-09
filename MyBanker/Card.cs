@@ -42,9 +42,9 @@ namespace MyBanker
             set { _accountNumber = value; }
         }
 
-        public Card()
+        public Card(string cardHolder)
         {
-
+            CardHolder = cardHolder;
         }
 
         //Create a virtual string method, we use as our standard method to override to print out the cards we create.
@@ -52,8 +52,11 @@ namespace MyBanker
         {
             //Print as a list looking like a credit card.
             return 
-            "Card Holder: " + CardHolder + "\n" +
-            "";
+            "Kort ejer: " + CardHolder + "\n" +
+            "Konto nummer: " + AccountNumber + "\n" +
+            "Kort type: " + CardType + "\n" +
+            "Kort nummer: " + CardNumber
+            ;
         }
     }
 }
