@@ -13,10 +13,10 @@ namespace MyBanker
             string AccountNumberPrefix = "3520";
 
             //Sets our account number.
-            AccountNumber = cardNumberGenerator.CreateCarddNumber(AccountNumberPrefix, 14);
+            AccountNumber = cardNumberGenerator.CreateCardNumber(AccountNumberPrefix, 14);
             CardType = "Hævekort";
             CardPrefix = "2400";
-            CardNumber = cardNumberGenerator.CreateCarddNumber(CardPrefix, 16);
+            CardNumber = cardNumberGenerator.CreateCardNumber(CardPrefix, 16);
         }
     }
 }

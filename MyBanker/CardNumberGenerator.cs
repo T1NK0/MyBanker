@@ -6,7 +6,7 @@ namespace MyBanker
 {
     class CardNumberGenerator
     {
-        public string CreateCarddNumber(string prefix, int cardNumberLength)
+        public string CreateCardNumber(string prefix, int cardNumberLength)
         {
             //Creates a random number generator.
             Random random = new Random();
